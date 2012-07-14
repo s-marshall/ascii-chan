@@ -1,0 +1,45 @@
+!!! 5
+%html
+  %head
+    %title /ascii/
+    :css                       
+      body{font-family: sans-serif; width: 800px; margin: 0 auto; padding: 10px;}
+      .error{color: red;}
+      label{display: block; font-size: 20px;}
+      input[type=text]{width: 400px; font-size: 20px; padding: 2px;}
+      textarea{width: 400px; height: 200px; font-size: 17px; font-family: monospace}
+      input[type=submit]{font-size: 24px;}
+      hr{margin: 20px auto;}
+      .art + .art{margin-top: 20px;}
+      .art-title{font-weight: bold; font-size: 20px;}
+      .art-body{margin: 0; font-size: 17px;} 
+
+  %body
+    %h1 /ascii/
+
+    %form{:method => 'post'}
+      %label
+        %div Title
+        %input{:type => 'text', :name => 'title', :value => %Q{#{locals[:title]}}}
+
+      %label
+        %div.art Art
+        =find_and_preserve do
+          %textarea{:name => 'artwork'}
+            = %Q{#{locals[:artwork]}}
+
+      .error
+        = %Q{#{locals[:error]}}
+      %br
+      %input{:type => 'submit'}
+
+    %hr
+    %div.art Art Gallery
+    %hr
+    - locals[:art_gallery].each do |title, artwork|
+      .art-title
+        #{title}
+      %pre.art-body
+        :preserve
+          #{artwork}
+
