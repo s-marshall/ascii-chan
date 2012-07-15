@@ -1,4 +1,4 @@
 source :rubygems
 gem 'sinatra'
 gem 'haml'
-gem 'pg'
+gem 'data_mapper'
