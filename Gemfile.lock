@@ -46,6 +46,7 @@ GEM
     json (1.6.5)
     json_pure (1.6.5)
     multi_json (1.0.4)
+    pg (0.14.0)
     rack (1.4.1)
     rack-protection (1.2.0)
       rack
@@ -63,4 +64,5 @@ PLATFORMS
 DEPENDENCIES
   data_mapper
   haml
+  pg
   sinatra
