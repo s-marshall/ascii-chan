@@ -1,6 +1,8 @@
 require 'sinatra'
 require 'haml'
 require 'data_mapper'
+require 'dm-postgres-adapter'
+require 'pg'
 
 DataMapper::setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost/artdb')
 
