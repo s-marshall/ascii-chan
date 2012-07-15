@@ -2,7 +2,7 @@ require 'sinatra'
 require 'haml'
 require 'data_mapper'
 
-DataMapper::setup(:default, 'ENV[DATABASE_URL]' || 'postgres://localhost/artdb')
+DataMapper::setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost/artdb')
 
 class Art
   include DataMapper::Resource
